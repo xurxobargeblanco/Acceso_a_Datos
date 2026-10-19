@@ -2,14 +2,14 @@
 <libreria>
     <libro codigo="1">
         <autor>Miguel de Cervantes Saavedra</autor>
-        <cantidad>8</cantidad>
-        <precio>23.65</precio>
         <titulo>Don Quijote de la Mancha</titulo>
+        <precio>23.65</precio>
+        <cantidad>8</cantidad>
     </libro>
     <libro codigo="2">
         <autor>Agatha Christie</autor>
-        <cantidad>5</cantidad>
-        <precio>22.6</precio>
         <titulo>Asesinato en el Orient Express</titulo>
+        <precio>22.6</precio>
+        <cantidad>5</cantidad>
     </libro>
 </libreria>

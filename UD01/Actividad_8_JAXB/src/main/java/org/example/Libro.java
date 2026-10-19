@@ -2,7 +2,9 @@ package org.example;
 
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
 
+@XmlType(propOrder = {"autor", "titulo", "precio", "cantidad"})
 public class Libro {
 
     private int codigo;
