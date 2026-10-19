@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libreria>
+    <libro codigo="1">
+        <titulo>Ola mundo</titulo>
+        <autor>eu</autor>
+        <precio>1.0</precio>
+        <cantidad>1</cantidad>
+    </libro>
+    <libro codigo="2">
+        <titulo>Hola mundo 2</titulo>
+        <autor>eu x2</autor>
+        <precio>22.0</precio>
+        <cantidad>200</cantidad>
+    </libro>
+</libreria>
