@@ -1,15 +1,17 @@
 {
-  "receta" : [ {
-    "nombre" : "Tortilla de patatas",
-    "tiempo" : "30",
-    "ingredientes" : {
-      "ingrediente" : [ "patatas", "huevos", "aceite de oliva", "sal" ]
-    }
-  }, {
-    "nombre" : "Ensalada mixta",
-    "tiempo" : "15",
-    "ingredientes" : {
-      "ingrediente" : [ "lechuga", "tomate", "cebolla", "aceite de oliva" ]
-    }
-  } ]
+  "recetas" : {
+    "receta" : [ {
+      "nombre" : "Tortilla de patatas",
+      "tiempo" : "30",
+      "ingredientes" : {
+        "ingrediente" : [ "patatas", "huevos", "aceite de oliva", "sal" ]
+      }
+    }, {
+      "nombre" : "Ensalada mixta",
+      "tiempo" : "15",
+      "ingredientes" : {
+        "ingrediente" : [ "lechuga", "tomate", "cebolla", "aceite de oliva" ]
+      }
+    } ]
+  }
 }

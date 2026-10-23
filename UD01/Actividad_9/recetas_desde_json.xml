@@ -1,0 +1,22 @@
+<recetas>
+  <receta>
+    <nombre>Tortilla de patatas</nombre>
+    <tiempo>30</tiempo>
+    <ingredientes>
+      <ingrediente>patatas</ingrediente>
+      <ingrediente>huevos</ingrediente>
+      <ingrediente>aceite de oliva</ingrediente>
+      <ingrediente>sal</ingrediente>
+    </ingredientes>
+  </receta>
+  <receta>
+    <nombre>Ensalada mixta</nombre>
+    <tiempo>15</tiempo>
+    <ingredientes>
+      <ingrediente>lechuga</ingrediente>
+      <ingrediente>tomate</ingrediente>
+      <ingrediente>cebolla</ingrediente>
+      <ingrediente>aceite de oliva</ingrediente>
+    </ingredientes>
+  </receta>
+</recetas>

@@ -4,21 +4,25 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class ConvertidorJsonXml {
 
-    private static final String RAIZ = "recetas.json";
+    private static final String RAIZ = "recetas";
 
     private String leerFichero(File fichero) throws IOException {
-        StringBuilder contenido = new StringBuilder();
+        String contenido = "";
         try (BufferedReader lector = new BufferedReader(new FileReader(fichero))) {
             String linea;
             while ((linea = lector.readLine()) != null) {
-                contenido.append(linea).append("\n");
+                contenido = contenido + linea + "\n";
             }
         }
-        return contenido.toString();
+        return contenido;
     }
 
     private void escribirFichero(File fichero, String texto) throws IOException {
@@ -60,8 +64,13 @@ public class ConvertidorJsonXml {
             JsonNode jsonNode = xmlMapper.readTree(xmlString);
 
             ObjectMapper jsonMapper = new ObjectMapper();
+            String contido = jsonMapper.writeValueAsString(jsonNode);
+
+            String envolto = "{\"" + RAIZ + "\": " + contido + "}";
+            JsonNode jsonConRaiz = jsonMapper.readTree(envolto);
+
             String jsonOutput = jsonMapper.writerWithDefaultPrettyPrinter()
-                    .writeValueAsString(jsonNode);
+                    .writeValueAsString(jsonConRaiz);
 
             escribirFichero(jsonFile, jsonOutput);
             System.out.println("Convertido " + xmlFile.getName() + " -> " + jsonFile.getName());
