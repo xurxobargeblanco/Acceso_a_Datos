@@ -1,4 +1,4 @@
-package org.example.Ejercicio_1;
+package org.example.Ejercicio_1.Ejercicio_1;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,9 +10,28 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * Esta clase representa un Convertidor de Json a Xml y Xml a Json.
+ *
+ * @author xurxobarge
+ * @version 1.2
+ *
+ */
+
 public class ConvertidorJsonXml {
 
+    /**
+     * Nombre del elemento raiz del fichero
+     */
     private static final String RAIZ = "recetas";
+
+    /**
+     * Lee un fichero de texto completo, línea a línea.
+     *
+     * @param fichero El fichero de texto que se quiere leer.
+     * @return El contenido completo del fichero como un String.
+     * @throws IOException Si ocurre un error al leer el fichero.
+     */
 
     private String leerFichero(File fichero) throws IOException {
         String contenido = "";
@@ -40,7 +59,7 @@ public class ConvertidorJsonXml {
 
             JsonNode contido = jsonNode.get(RAIZ);
             if (contido == null) {
-                System.out.println("O JSON non ten o elemento \"" + RAIZ + "\"");
+                System.out.println("El JSON no tiene el elemento \"" + RAIZ + "\"");
                 return;
             }
 
@@ -52,7 +71,7 @@ public class ConvertidorJsonXml {
             escribirFichero(xmlFile, xmlOutput);
             System.out.println("Convertido " + jsonFile.getName() + " -> " + xmlFile.getName());
         } catch (IOException e) {
-            System.out.println("Error na conversión Json - XML : " + e.getMessage());
+            System.out.println("Error en la conversión Json - XML : " + e.getMessage());
         }
     }
 
@@ -75,7 +94,7 @@ public class ConvertidorJsonXml {
             escribirFichero(jsonFile, jsonOutput);
             System.out.println("Convertido " + xmlFile.getName() + " -> " + jsonFile.getName());
         } catch (IOException e) {
-            System.out.println("Error na conversión XML - Json : " + e.getMessage());
+            System.out.println("Error en la conversión XML - Json : " + e.getMessage());
         }
     }
 }

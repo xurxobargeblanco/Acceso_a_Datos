@@ -1,4 +1,4 @@
-package org.example.Ejercicio_1;
+package org.example.Ejercicio_1.Ejercicio_1;
 
 import java.io.File;
 
