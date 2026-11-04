@@ -6,10 +6,10 @@ import java.sql.Statement;
 
 public class Ejercicio_3 {
     public static void main(String[] args) {
-        incremntar();
+        incrementar();
     }
 
-    public static void incremntar(){
+    public static void incrementar(){
 
         String sql = "UPDATE empleados SET SALARIO = SALARIO * 1.05";
 
