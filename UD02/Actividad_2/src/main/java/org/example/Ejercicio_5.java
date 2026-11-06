@@ -6,6 +6,20 @@ import java.util.Scanner;
 
 public class Ejercicio_5 {
 
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        int empNo = pedirEnteiro(sc, "Número de empleado:");
+        String apellido = pedirTexto(sc, "Apellido:");
+        String oficio = pedirTexto(sc, "Oficio:");
+        double salario = pedirDouble(sc, "Salario:");
+        int depNo = pedirEnteiro(sc, "Número de departamento:");
+
+        insertarEmpleado(empNo, apellido, oficio, salario, depNo);
+
+        sc.close();
+    }
+
     private static String pedirTexto(Scanner sc, String mensaxe){
         System.out.println(mensaxe);
         return sc.nextLine();
