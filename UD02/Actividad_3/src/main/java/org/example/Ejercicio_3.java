@@ -14,6 +14,7 @@ public class Ejercicio_3 {
         System.out.println("Introduce el salario :");
         double salario = Double.parseDouble(sc.nextLine().trim());
 
+        incrementarSalario(salario);
 
     }
 
