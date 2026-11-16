@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class Ejercicio_4 {
     public static void main(String[] args){
-
+        recorridoBidireccional();
     }
 
     public static void recorridoBidireccional(){
@@ -29,7 +29,15 @@ public class Ejercicio_4 {
 
             if(rs.last()) mostrar("Último",rs);
 
-            // Crear anterior ao ultimo...
+            if(rs.previous()){
+                mostrar("Anterior",rs);
+            }else System.out.println("Anterior : No hay registros anteriores");
+
+            if(rs.next()) mostrar("Siguiente",rs);
+            else System.out.println("Siguiente : No hay siguiente");
+
+            if (rs.absolute(3)) mostrar("Tercero", rs);
+            else System.out.println("Tercero : No hay tercero");
 
         }catch (SQLException e){
             System.out.println("Errro : " + e.getMessage());
