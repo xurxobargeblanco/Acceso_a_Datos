@@ -7,29 +7,19 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-public class PizzaDAO {
+public interface PizzaDAO {
 
-    public static List<Pizza> listarTodas() throws SQLException {
+    List<Pizza> listarTodas() throws SQLException;
 
-    }
+    Optional<Pizza> buscarPorId(int id) throws SQLException;
 
-    public static Optional<Pizza> buscarPorId(int id) throws SQLException{
+    List<Pizza> buscarPorNome(String nome) throws SQLException;
 
-    }
+    boolean insertar(Pizza p) throws SQLException;
 
-    public static List<Pizza> buscarPorNome(String nome) throws SQLException{
+    boolean actualizar(Pizza p) throws SQLException;
 
-    }
+    boolean eliminar(int id) throws SQLException;
 
-    public static boolean insertar(Pizza p) throws SQLException{
-
-    }
-
-    public static boolean actualizar(Pizza p) throws SQLException{}
-
-    public static boolean eliminar(int id) throws SQLException{}
-
-    public static List<PizzaResumenDTO> listardoResumido() throws SQLException{
-
-    }
+    List<PizzaResumenDTO> listardoResumido() throws SQLException;
 }
