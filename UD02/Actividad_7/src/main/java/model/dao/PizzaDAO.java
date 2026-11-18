@@ -13,7 +13,7 @@ public interface PizzaDAO {
 
     Optional<Pizza> buscarPorId(int id) throws SQLException;
 
-    List<Pizza> buscarPorNome(String nome) throws SQLException;
+    List<Pizza> buscarPorNombre(String nombre) throws SQLException;
 
     boolean insertar(Pizza p) throws SQLException;
 
@@ -21,5 +21,5 @@ public interface PizzaDAO {
 
     boolean eliminar(int id) throws SQLException;
 
-    List<PizzaResumenDTO> listardoResumido() throws SQLException;
+    List<PizzaResumenDTO> listarResumido() throws SQLException;
 }
