@@ -15,9 +15,15 @@ public class ConnectioPool {
     private static final int INITIALSIZE = 2;
     private static final int MAXTOTAL = 10;
 
-    private ConnectioPool(){
-
+    static {
+        dataSource.setUrl(URL);
+        dataSource.setUsername(USUARIO);
+        dataSource.setPassword(PASSWORD);
+        dataSource.setInitialSize(INITIALSIZE);
+        dataSource.setMaxTotal(MAXTOTAL);
     }
+
+    private ConnectioPool(){}
 
     private static Connection getConnection() throws SQLException{
         return dataSource.getConnection();
