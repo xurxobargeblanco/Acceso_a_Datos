@@ -3,8 +3,8 @@ package model.dto;
 import java.math.BigDecimal;
 
 public class PizzaResumenDTO {
-    private String nombre;
-    private BigDecimal precio;
+    final private String nombre;
+    final private BigDecimal precio;
 
     public PizzaResumenDTO(String nome, BigDecimal prezo) {
         this.nombre = nome;
