@@ -23,6 +23,13 @@ public class PizzaDAOImpl implements PizzaDAO{
                 rs.getBoolean("disponible"));
     }
 
+    private PizzaResumenDTO mapearPizzaResumen(ResultSet rs)throws SQLException{
+        return new PizzaResumenDTO(
+                rs.getString("nombre"),
+                rs.getBigDecimal("precio")
+        );
+    }
+
     @Override
     public List<Pizza> listarTodas() throws SQLException {
         String sql = "SELECT id, nombre, descripcion, precio, disponible FROM pizzas";
@@ -30,7 +37,7 @@ public class PizzaDAOImpl implements PizzaDAO{
 
         try(Connection c = ConnectioPool.getConnection();
             PreparedStatement preparedStatement = c.prepareStatement(sql);
-            ResultSet rs = preparedStatement.getResultSet()){
+            ResultSet rs = preparedStatement.executeQuery()){
             while (rs.next()){
                 pizzas.add(mapearPizza(rs));
             }
@@ -40,7 +47,6 @@ public class PizzaDAOImpl implements PizzaDAO{
 
     @Override
     public Optional<Pizza> buscarPorId(int id) throws SQLException {
-
         String sql = "SELECT id, nombre, descripcion, precio, disponible FROM pizzas WHERE id = ?";
 
         try (Connection c = ConnectioPool.getConnection();
@@ -77,21 +83,67 @@ public class PizzaDAOImpl implements PizzaDAO{
 
     @Override
     public boolean insertar(Pizza p) throws SQLException {
-        return false;
+        String sql = "INSERT INTO pizzas (nombre, descripcion, precio, disponible) VALUES (?, ?, ?, ?)";
+
+        try(Connection c = ConnectioPool.getConnection();
+            PreparedStatement ps = c.prepareStatement(sql)){
+
+            ps.setString(1, p.getNombre());
+            ps.setString(2,p.getDescripcion());
+            ps.setBigDecimal(3,p.getPrecio());
+            ps.setBoolean(4, p.isDisponible());
+
+            int filas = ps.executeUpdate();
+            return filas > 0;
+        }
     }
 
     @Override
     public boolean actualizar(Pizza p) throws SQLException {
-        return false;
+        String sql = "UPDATE pizzas SET nombre = ?, descripcion = ?, precio = ?, disponible = ? WHERE id = ?";
+
+        try(Connection c = ConnectioPool.getConnection();
+            PreparedStatement ps = c.prepareStatement(sql)){
+
+            ps.setString(1, p.getNombre());
+            ps.setString(2,p.getDescripcion());
+            ps.setBigDecimal(3,p.getPrecio());
+            ps.setBoolean(4, p.isDisponible());
+            ps.setInt(5, p.getId());
+
+            int filas = ps.executeUpdate();
+            return filas > 0;
+        }
+
     }
 
     @Override
     public boolean eliminar(int id) throws SQLException {
-        return false;
+        String sql = "DELETE FROM pizzas WHERE id = ?";
+
+        try(Connection c = ConnectioPool.getConnection();
+            PreparedStatement ps = c.prepareStatement(sql)){
+
+            ps.setInt(1,id);
+
+            int filas = ps.executeUpdate();
+            return filas > 0;
+        }
+
     }
 
     @Override
     public List<PizzaResumenDTO> listarResumido() throws SQLException {
-        return List.of();
+        String sql = "SELECT nombre, precio FROM pizzas";
+        List<PizzaResumenDTO> pizzas = new ArrayList<>();
+
+        try(Connection c = ConnectioPool.getConnection();
+            PreparedStatement preparedStatement = c.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery()){
+            while (rs.next()){
+                pizzas.add(mapearPizzaResumen(rs));
+            }
+        }
+        return pizzas;
     }
 }
