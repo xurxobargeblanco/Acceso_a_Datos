@@ -9,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,12 +40,39 @@ public class PizzaDAOImpl implements PizzaDAO{
 
     @Override
     public Optional<Pizza> buscarPorId(int id) throws SQLException {
-        return Optional.empty();
+
+        String sql = "SELECT id, nombre, descripcion, precio, disponible FROM pizzas WHERE id = ?";
+
+        try (Connection c = ConnectioPool.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
+
+            ps.setInt(1, id);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return Optional.of(mapearPizza(rs));
+                }
+                return Optional.empty();
+            }
+        }
     }
 
     @Override
     public List<Pizza> buscarPorNombre(String nome) throws SQLException {
-        return List.of();
+        String sql = "SELECT id, nombre, descripcion, precio, disponible FROM pizzas WHERE nombre LIKE ?";
+        List<Pizza> pizzas = new ArrayList<>();
+        try (Connection c = ConnectioPool.getConnection();
+             PreparedStatement ps = c.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + nome + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()){
+                    pizzas.add(mapearPizza(rs));
+                }
+            }
+        }
+        return pizzas;
     }
 
     @Override
