@@ -2,7 +2,7 @@ package model.dao;
 
 import model.dto.PizzaResumenDTO;
 import model.entity.Pizza;
-import model.util.ConnectioPool;
+import model.util.ConnectionPool;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,7 +35,7 @@ public class PizzaDAOImpl implements PizzaDAO{
         String sql = "SELECT id, nombre, descripcion, precio, disponible FROM pizzas";
         List<Pizza> pizzas = new ArrayList<>();
 
-        try(Connection c = ConnectioPool.getConnection();
+        try(Connection c = ConnectionPool.getConnection();
             PreparedStatement preparedStatement = c.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery()){
             while (rs.next()){
@@ -49,7 +49,7 @@ public class PizzaDAOImpl implements PizzaDAO{
     public Optional<Pizza> buscarPorId(int id) throws SQLException {
         String sql = "SELECT id, nombre, descripcion, precio, disponible FROM pizzas WHERE id = ?";
 
-        try (Connection c = ConnectioPool.getConnection();
+        try (Connection c = ConnectionPool.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
 
             ps.setInt(1, id);
@@ -67,7 +67,7 @@ public class PizzaDAOImpl implements PizzaDAO{
     public List<Pizza> buscarPorNombre(String nome) throws SQLException {
         String sql = "SELECT id, nombre, descripcion, precio, disponible FROM pizzas WHERE nombre LIKE ?";
         List<Pizza> pizzas = new ArrayList<>();
-        try (Connection c = ConnectioPool.getConnection();
+        try (Connection c = ConnectionPool.getConnection();
              PreparedStatement ps = c.prepareStatement(sql)) {
 
             ps.setString(1, "%" + nome + "%");
@@ -85,7 +85,7 @@ public class PizzaDAOImpl implements PizzaDAO{
     public boolean insertar(Pizza p) throws SQLException {
         String sql = "INSERT INTO pizzas (nombre, descripcion, precio, disponible) VALUES (?, ?, ?, ?)";
 
-        try(Connection c = ConnectioPool.getConnection();
+        try(Connection c = ConnectionPool.getConnection();
             PreparedStatement ps = c.prepareStatement(sql)){
 
             ps.setString(1, p.getNombre());
@@ -102,7 +102,7 @@ public class PizzaDAOImpl implements PizzaDAO{
     public boolean actualizar(Pizza p) throws SQLException {
         String sql = "UPDATE pizzas SET nombre = ?, descripcion = ?, precio = ?, disponible = ? WHERE id = ?";
 
-        try(Connection c = ConnectioPool.getConnection();
+        try(Connection c = ConnectionPool.getConnection();
             PreparedStatement ps = c.prepareStatement(sql)){
 
             ps.setString(1, p.getNombre());
@@ -121,7 +121,7 @@ public class PizzaDAOImpl implements PizzaDAO{
     public boolean eliminar(int id) throws SQLException {
         String sql = "DELETE FROM pizzas WHERE id = ?";
 
-        try(Connection c = ConnectioPool.getConnection();
+        try(Connection c = ConnectionPool.getConnection();
             PreparedStatement ps = c.prepareStatement(sql)){
 
             ps.setInt(1,id);
@@ -137,7 +137,7 @@ public class PizzaDAOImpl implements PizzaDAO{
         String sql = "SELECT nombre, precio FROM pizzas";
         List<PizzaResumenDTO> pizzas = new ArrayList<>();
 
-        try(Connection c = ConnectioPool.getConnection();
+        try(Connection c = ConnectionPool.getConnection();
             PreparedStatement preparedStatement = c.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery()){
             while (rs.next()){

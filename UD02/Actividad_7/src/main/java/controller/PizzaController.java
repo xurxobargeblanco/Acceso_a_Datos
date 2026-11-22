@@ -31,7 +31,7 @@ public class PizzaController {
                     case 4 -> eliminar();
                     case 5 -> buscar();
                     case 6 -> view.mostrarResumen(service.listarResumido());
-                    case 7 -> view.mostrarMensaje("Hasta pronto");
+                    case 7 -> view.mostrarMensaje("Saliendo del programa ...");
                     default -> view.mostrarMensaje("Opción no válida");
                 }
             } catch (IllegalArgumentException e) {

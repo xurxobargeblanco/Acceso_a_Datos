@@ -17,8 +17,8 @@ public class PizzaResumenDTO {
     @Override
     public String toString() {
         return "PizzaResumenDTO{" +
-                "nome='" + nombre + '\'' +
-                ", prezo=" + precio +
+                "nombre = '" + nombre + '\'' +
+                ", precio = " + precio +
                 '}';
     }
 }

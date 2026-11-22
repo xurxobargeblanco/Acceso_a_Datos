@@ -15,7 +15,7 @@
     </properties>
 
     <dependencies>
-        <!-- Pool de conexiones (arrastra commons-pool2 y commons-logging solo) -->
+        <!-- Pool de conexiones  -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-dbcp2</artifactId>
