@@ -47,7 +47,7 @@ public class Ejercicio_5 {
         }
     }
     public static void insertarEmpleado(int empNO,String apellido, String oficio, double salario, int dep_no){
-        String sql = "INSERT INTO empleados (EMP_NO, APELLIDO, OFOCIO, SALARIO, DEP_NO)" + "VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO empleados (EMP_NO, APELLIDO, OFICIO, SALARIO, DEP_NO)" + "VALUES (?,?,?,?,?)";
 
         try(Connection connection = ConexionBD.getConnection();
             PreparedStatement pstmt = connection.prepareStatement(sql)){
