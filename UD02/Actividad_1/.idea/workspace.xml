@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1b23320-acf0-4f57-a776-2d251d47ddac" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Actividad_2/src/main/java/org/example/BD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../UD01/Actividad_9/src/main/java/org/example/Ejercicio_1/Ejercicio_2/ConvertidorRecetaJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../UD01/Actividad_9/src/main/java/org/example/Ejercicio_1/Ejercicio_2/ConvertidorRecetaJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../UD01/Actividad_9/src/main/java/org/example/Ejercicio_1/Ejercicio_2/Receta.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../UD01/Actividad_9/src/main/java/org/example/Ejercicio_1/Ejercicio_2/Receta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/instituto.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/instituto.mv.db" afterDir="false" />
-    </list>
+    <list default="true" id="b1b23320-acf0-4f57-a776-2d251d47ddac" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
