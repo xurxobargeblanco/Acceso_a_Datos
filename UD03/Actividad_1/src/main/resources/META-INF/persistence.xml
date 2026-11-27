@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+                                 https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+
+    <persistence-unit name="NOMBRE_UNIDAD" transaction-type="RESOURCE_LOCAL">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Clases anotadas con @Entity -->
+        <class>paquete.TuEntidad</class>
+
+        <properties>
+            <!-- Conexión -->
+            <property name="jakarta.persistence.jdbc.driver"   value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url"      value="jdbc:mysql://localhost:3306/TU_BASE"/>
+            <property name="jakarta.persistence.jdbc.user"     value="..."/>
+            <property name="jakarta.persistence.jdbc.password" value="..."/>
+
+            <!-- Xeración do esquema -->
+            <property name="hibernate.hbm2ddl.auto" value="???"/>
+
+            <!-- Opcional: ver o SQL -->
+            <property name="hibernate.show_sql"   value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
